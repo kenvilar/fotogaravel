@@ -8,8 +8,13 @@
 	<meta name="description"
 	      content="Fotogaravel is a simple, fast and light app to create a gallery of your photos using a Laravel framework.">
 	<title>Fotogaravel</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
 </head>
 <body>
+
+<div class="row">
+	@yield('content')
+</div>
 
 </body>
 </html>
