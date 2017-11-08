@@ -13,7 +13,11 @@ class FormServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /* Laravel Collective */
+        \Form::component('text', 'components.form.text', ['name', 'value' => null, 'attributes' => []]);
+        \Form::component('textarea', 'components.form.textarea', ['name', 'value' => null, 'attributes' => []]);
+        \Form::component('submit', 'components.form.submit', ['value' => null, 'attributes' => []]);
+        \Form::component('file', 'components.form.file', ['name', 'attributes' => []]);
     }
 
     /**
