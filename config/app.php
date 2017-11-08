@@ -182,6 +182,7 @@ return [
     
         /* Laravel Collective */
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\FormServiceProvider::class,
 
     ],
 
