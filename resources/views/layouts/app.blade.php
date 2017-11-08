@@ -12,6 +12,8 @@
 </head>
 <body>
 
+@include('inc.navigation')
+
 <div class="row">
 	@yield('content')
 </div>
