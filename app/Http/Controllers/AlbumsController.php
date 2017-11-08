@@ -34,7 +34,29 @@ class AlbumsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'        => 'required',
+            'description' => 'required',
+            'cover_image' => 'image|max:1999', //you change the value of max file size if you have dedicated server
+        ]);
+        
+        // get file name with extension
+        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        
+        // get file name only
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        
+        // get the file extension
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        
+        // create a file name format
+        $newfileformat = $filename . '_' . time() . '.' . $extension;
+        
+        // upload the file
+        // run the command php artisan storage:link to create symbolic link for uploading files
+        $filePath = $request->file('cover_image')->storePubliclyAs('public/album_covers', $newfileformat);
+        
+        return $filePath;
     }
 
     /**
