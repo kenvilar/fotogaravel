@@ -15,6 +15,7 @@
 @include('inc.navigation')
 
 <div class="row">
+	@include('common.messages')
 	@yield('content')
 </div>
 
