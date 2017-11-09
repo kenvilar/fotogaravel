@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use Illuminate\Http\Request;
 
 class AlbumsController extends Controller
@@ -56,7 +57,14 @@ class AlbumsController extends Controller
         // run the command php artisan storage:link to create symbolic link for uploading files
         $filePath = $request->file('cover_image')->storePubliclyAs('public/album_covers', $newfileformat);
         
-        return $filePath;
+        $album = new Album();
+        $album->name = $request->input('name');
+        $album->description = $request->input('description');
+        $album->cover_image = $newfileformat;
+        
+        $album->save();
+        
+        return redirect('/albums')->with('success', 'Album created successfully!');
     }
 
     /**
