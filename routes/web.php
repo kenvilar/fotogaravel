@@ -13,3 +13,6 @@
 
 Route::get('/', 'AlbumsController@index');
 Route::resource('albums', 'AlbumsController');
+
+Route::get('photos/create/{album_id}', 'PhotosController@create');
+Route::post('photos/store', 'PhotosController@store');
