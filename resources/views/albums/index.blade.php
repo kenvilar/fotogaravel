@@ -27,14 +27,14 @@
 							<br>
 							<h4>{{ $album->name }}</h4>
 					@endif
-a
+
 					@if($i % 3 == 0)
 						</div></div>
 						<div class="row text-center">
 					@else
 						</div>
 					@endif
-				
+
 					<?php $i++; ?>
 				@endforeach
 			</div>
