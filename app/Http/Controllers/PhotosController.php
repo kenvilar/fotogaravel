@@ -61,7 +61,7 @@ class PhotosController extends Controller
         $filePath = $request->file('photo')->storeAs('public/photos/' . $request->input('album_id'), $newfileformat);
     
         $photo = new Photo();
-        $photo->id = $request->input('album_id');
+        $photo->album_id = $request->input('album_id');
         $photo->title = $request->input('title');
         $photo->description = $request->input('description');
         $photo->size = $request->file('photo')->getClientSize();
