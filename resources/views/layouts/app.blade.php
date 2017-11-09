@@ -21,6 +21,8 @@
 	</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
 
 </body>
