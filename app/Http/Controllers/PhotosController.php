@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhotosController extends Controller
 {
@@ -118,6 +119,12 @@ class PhotosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $photo = Photo::query()->find($id);
+        
+        if (Storage::delete('/public/photos/' . $photo->album_id . '/' . $photo->photo)) {
+            $photo->delete();
+            
+            return redirect('/albums/' . $photo->album_id)->with('success', 'Photo deleted successfully!');
+        }
     }
 }
