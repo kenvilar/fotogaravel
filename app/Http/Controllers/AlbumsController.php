@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Photo;
 use Illuminate\Http\Request;
 
 class AlbumsController extends Controller
@@ -14,7 +15,11 @@ class AlbumsController extends Controller
      */
     public function index()
     {
-        return view('albums.index');
+        $albums = Album::with('Photos')->get();
+    
+        return view('albums.index', [
+            'albums' => $albums,
+        ]);
     }
 
     /**
